@@ -14,11 +14,22 @@
       {
         "title": "egg-cooker",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "backgroundThrottling": "disabled",
+        "maximizable": false,
+        "resizable": false,
+        "decorations": false
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "capabilities": [
+        {
+          "identifier": "title-bar",
+          "permissions": ["core:window:allow-close"],
+          "windows": ["main"]
+        }
+      ]
     }
   },
   "bundle": {

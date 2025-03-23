@@ -1,4 +1,5 @@
 <template>
+  <TitleBar/>
   <div>
     <Timers
       v-if="view === VIEWS.LIST"
@@ -19,9 +20,10 @@ import { defineComponent, ref } from 'vue'
 import { timer_references } from './timer_references'
 import Timers from './components/Timers.vue'
 import Countdown from './components/Countdown.vue'
+import TitleBar from './components/TitleBar.vue'
 
 export default defineComponent({
-  components: { Timers, Countdown },
+  components: { Timers, Countdown, TitleBar },
   setup() {
     const VIEWS = {
       LIST: 'list',
