@@ -1,17 +1,9 @@
 <template>
-  <TitleBar/>
+  <TitleBar />
   <div>
-    <Timers
-      v-if="view === VIEWS.LIST"
-      :timers="timers"
-      @select="startTimer"
-    />
+    <Timers v-if="view === VIEWS.LIST" :timers="timers" @select="startTimer" />
 
-    <Countdown
-      v-else-if="view === VIEWS.COUNTDOWN && activeTimer"
-      :timer="activeTimer"
-      @reset="reset"
-    />
+    <Countdown v-else-if="view === VIEWS.COUNTDOWN && activeTimer" :timer="activeTimer" @reset="reset" />
   </div>
 </template>
 
@@ -56,3 +48,14 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
