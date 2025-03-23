@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "egg-cooker",
+        "title": "Egg Cooker",
         "width": 800,
         "height": 600,
         "backgroundThrottling": "disabled",

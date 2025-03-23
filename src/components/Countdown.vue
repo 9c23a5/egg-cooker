@@ -4,8 +4,7 @@
       <img :src="timer.image" :alt="timer.name" width="100" />
       <p>
         Time left:
-        {{ Math.floor(timeLeft / 60) }}:
-        {{ (timeLeft % 60).toString().padStart(2, '0') }}
+        {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
       </p>
       <button @click="$emit('reset')">Back</button>
     </div>
