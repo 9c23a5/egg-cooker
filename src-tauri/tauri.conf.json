@@ -13,10 +13,11 @@
     "windows": [
       {
         "title": "Egg Cooker",
-        "width": 800,
+        "width": 400,
         "height": 600,
         "backgroundThrottling": "disabled",
         "maximizable": false,
+        "transparent": true,
         "resizable": false,
         "decorations": false
       }

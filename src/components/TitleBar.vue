@@ -25,8 +25,7 @@ function close() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1e1e1e;
-  color: white;
+  background: inherit;
   user-select: none;
 }
 
