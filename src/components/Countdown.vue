@@ -1,50 +1,61 @@
 <template>
   <div>
     <h2>{{ timer.name }}</h2>
-    <img :src="timer.image" :alt="timer.name" width="100" />
     <p>
       Time left:
       {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
     </p>
-    <button @click="$emit('reset')">Back</button>
+    <button @click="stop()">Manual stop</button>
+    <button @click="reset()">Back</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, watch, onBeforeUnmount, ref } from 'vue'
+import { defineComponent, watch, onBeforeUnmount, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import type { TimerReference } from '../timer_references'
 
 export default defineComponent({
-  props: {
-    timer: {
-      type: Object as PropType<{ name: string, seconds: number, image: string }>,
-      required: true
-    }
-  },
-  emits: ['reset'],
-  setup(props) {
-    const timeLeft = ref(props.timer.seconds)
+  setup() {
+    const router = useRouter()
+    const timer = ref(history.state.timer as TimerReference)
+    const timeLeft = ref(timer.value.seconds)
     let interval: number
 
-    function stop() {
+
+    function stopTimer() {
       clearInterval(interval)
     }
 
-    watch(() => props.timer, () => {
-      timeLeft.value = props.timer.seconds
+    function stop() {
+      stopTimer()
+      router.push({ name: 'countdown_done' })
+    }
+
+    function reset() {
+      stopTimer()
+      router.push({ name: 'home' })
+    }
+
+
+    watch(() => timer, () => {
+      timeLeft.value = timer.value.seconds
     })
 
     interval = window.setInterval(() => {
       timeLeft.value--
       if (timeLeft.value <= 0) {
         stop()
-        alert("Time's up!")
       }
     }, 1000)
 
-    onBeforeUnmount(stop)
+    onBeforeUnmount(stopTimer)
 
     return {
-      timeLeft
+      timer,
+      timeLeft,
+      stop,
+      reset
     }
   }
 })

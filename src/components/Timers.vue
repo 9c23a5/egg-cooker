@@ -2,8 +2,7 @@
   <div>
     <h1>Choose a timer</h1>
     <div v-for="timer in timers" :key="timer.name">
-      <button @click="$emit('select', timer)">
-        <img :src="timer.image" :alt="timer.name" width="50" />
+      <button @click="selectTimer(timer)">
         {{ timer.name }}
       </button>
     </div>
@@ -11,15 +10,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 import { timer_references } from '../timer_references'
 
+
 export default defineComponent({
-  props: {
-    timers: {
-      type: Array as PropType<typeof timer_references>,
-      required: true
+  emits: ['select'],
+  setup() {
+    const router = useRouter()
+    const timers = timer_references
+
+    function selectTimer(timer: typeof timer_references[number]) {
+      router.push({ name: 'countdown', state: { timer } })
     }
+
+    return { timers, selectTimer }
   }
 })
 </script>
