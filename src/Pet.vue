@@ -1,18 +1,24 @@
 <template>
   <div class="pet">
-    <p>{{ route.name }}</p>
+    <img :src="petImage" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { petByRoute, DEFAULT_PET } from './pet_config'
 
 export default defineComponent({
   setup() {
     const route = useRoute()
+    const petImage = computed(() => {
+      if (typeof route.name !== 'string') return DEFAULT_PET
 
-    return { route }
+      return petByRoute[route.name] ?? DEFAULT_PET
+    })
+
+    return { route, petImage }
   }
 })
 </script>
@@ -20,7 +26,5 @@ export default defineComponent({
 <style scoped>
 .pet {
   text-align: center;
-  font-size: 1.5rem;
-  margin: 1rem 0;
 }
 </style>

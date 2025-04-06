@@ -14,6 +14,8 @@ const routes = [
   { path: "/countdown_done", name: "countdown_done", component: CountdownDone },
 ];
 
+export type AppRouteName = (typeof routes)[number]["name"];
+
 export const router = createRouter({
   history: createWebHashHistory(),
   routes,
