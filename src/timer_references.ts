@@ -18,3 +18,10 @@ export const timer_references = [
 ] as const;
 
 export type TimerReference = (typeof timer_references)[number];
+
+export const timer_reference_map: Record<
+  TimerReference["name"],
+  TimerReference
+> = Object.fromEntries(
+  timer_references.map((timer) => [timer.name, timer])
+) as Record<TimerReference["name"], TimerReference>;

@@ -5,41 +5,35 @@
       Time left:
       {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
     </p>
-    <button @click="stop()">Manual stop</button>
-    <button @click="reset()">Back</button>
+    <RouterLink :to="{ name: 'countdown_done' }">
+      <button @click="stopTimer()">Manual stop</button>
+    </RouterLink>
+    <RouterLink :to="{ name: 'home' }">
+      <button @click="stopTimer()">Back</button>
+    </RouterLink>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, watch, onBeforeUnmount, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import type { TimerReference } from '../timer_references'
+import { useRoute } from 'vue-router'
+import { timer_reference_map } from '../timer_references'
 
 export default defineComponent({
   setup() {
-    const router = useRouter()
-    const timer = ref(history.state.timer as TimerReference)
-    const timeLeft = ref(timer.value.seconds)
-    let interval: number
+    const route = useRoute()
+    const timerName = route.params.name as keyof typeof timer_reference_map
+    const timer = timer_reference_map[timerName]
 
+    const timeLeft = ref(timer.seconds)
+    let interval: number
 
     function stopTimer() {
       clearInterval(interval)
     }
 
-    function stop() {
-      stopTimer()
-      router.push({ name: 'countdown_done' })
-    }
-
-    function reset() {
-      stopTimer()
-      router.push({ name: 'home' })
-    }
-
-
     watch(() => timer, () => {
-      timeLeft.value = timer.value.seconds
+      timeLeft.value = timer.seconds
     })
 
     interval = window.setInterval(() => {
@@ -54,8 +48,7 @@ export default defineComponent({
     return {
       timer,
       timeLeft,
-      stop,
-      reset
+      stopTimer
     }
   }
 })
