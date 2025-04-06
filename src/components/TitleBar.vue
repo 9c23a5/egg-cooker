@@ -49,7 +49,7 @@ function close() {
 .close-button {
   width: 48px;
   height: 48px;
-  background-image: url('/close.png');
+  background-image: url('../assets/title_bar/close.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
