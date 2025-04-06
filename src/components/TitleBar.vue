@@ -1,6 +1,8 @@
 <template>
   <div class="titlebar" data-tauri-drag-region>
-    <span class="title">Egg Cooker</span>
+    <div class="title">
+      <button>Shop</button>
+    </div>
     <div class="window-controls" @click="close">
       <div class="close-button"></div>
     </div>
