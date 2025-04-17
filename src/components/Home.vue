@@ -4,11 +4,11 @@
     <div v-for="[label, routeName] in menus" :key="label">
       <template v-if="routeName">
         <RouterLink :to="{ name: routeName }">
-          <button>{{ label }}</button>
+          <BaseButton>{{ label }}</BaseButton>
         </RouterLink>
       </template>
       <template v-else>
-        <button>{{ label }}</button>
+        <BaseButton>{{ label }}</BaseButton>
       </template>
     </div>
   </div>

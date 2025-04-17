@@ -6,10 +6,10 @@
       {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
     </p>
     <RouterLink :to="{ name: 'countdown_done' }">
-      <button @click="stopTimer()">[DEV] Manual stop</button>
+      <BaseButton @click="stopTimer()">[DEV] Manual stop</BaseButton>
     </RouterLink>
     <RouterLink :to="{ name: 'home' }">
-      <button @click="stopTimer()">Back</button>
+      <BaseButton @click="stopTimer()">Back</BaseButton>
     </RouterLink>
   </div>
 </template>

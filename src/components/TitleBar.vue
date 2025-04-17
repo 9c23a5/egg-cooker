@@ -1,10 +1,10 @@
 <template>
   <div class="titlebar" data-tauri-drag-region>
     <div class="title">
-      <button>Shop</button>
+      <BaseButton>Shop</BaseButton>
     </div>
     <div class="window-controls" @click="close">
-      <div class="close-button"></div>
+      <BaseButton class="close-button"></BaseButton>
     </div>
   </div>
 </template>
@@ -22,7 +22,6 @@ function close() {
 <style scoped>
 .titlebar {
   height: 48px;
-  /* increased from 32px */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -42,8 +41,6 @@ function close() {
   align-items: center;
   justify-content: center;
   height: 100%;
-  cursor: pointer;
-  -webkit-app-region: no-drag;
 }
 
 .close-button {
@@ -53,7 +50,7 @@ function close() {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-app-region: no-drag;
+  border: 0;
 }
 
 [data-tauri-drag-region] {

@@ -5,25 +5,25 @@
 </template>
 
 <script setup lang="ts">
-import { play } from '../audioContext.ts'
+import { play } from '../audio_context.ts'
 
 let isMouseDown = false
 
 function handleDown() {
   isMouseDown = true
-  play('down')
+  play('mouse_down')
 }
 
 function handleUp() {
   if (!isMouseDown) return
   isMouseDown = false
-  play('up')
+  play('mouse_up')
 }
 </script>
 
 <style scoped>
 .base-button {
+  -webkit-app-region: no-drag;
   cursor: pointer;
-  color: red;
 }
 </style>

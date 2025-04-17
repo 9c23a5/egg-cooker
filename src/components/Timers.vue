@@ -3,14 +3,14 @@
     <h1>Choose a timer</h1>
     <div v-for="timer in timers" :key="timer.name">
       <RouterLink :to="{ name: 'countdown', params: { name: timer.name } }">
-        <button>
+        <BaseButton>
           {{ timer.name }}
-        </button>
+        </BaseButton>
       </RouterLink>
     </div>
 
     <RouterLink :to="{ name: 'home' }">
-      <button>Return to title screen</button>
+      <BaseButton>Return to title screen</BaseButton>
     </RouterLink>
   </div>
 </template>

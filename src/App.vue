@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import Pet from './Pet.vue'
 import TitleBar from './components/TitleBar.vue'
 

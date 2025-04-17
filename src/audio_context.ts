@@ -1,8 +1,8 @@
 const audioContext = new AudioContext();
 
 const soundMap: Record<string, string> = {
-  down: "/sounds/mouse_down.ogg",
-  up: "/sounds/mouse_up.ogg",
+  mouse_down: "/sounds/mouse_down.ogg",
+  mouse_up: "/sounds/mouse_up.ogg",
 };
 
 const buffers: Map<string, AudioBuffer> = new Map();

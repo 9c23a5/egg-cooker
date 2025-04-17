@@ -5,7 +5,7 @@
     </p>
 
     <RouterLink :to="{ name: 'home' }">
-      <button>Return to title screen</button>
+      <BaseButton>Return to title screen</BaseButton>
     </RouterLink>
   </div>
 

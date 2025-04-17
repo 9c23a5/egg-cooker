@@ -1,9 +1,8 @@
 <template>
   <p>Work in progress!</p>
   <RouterLink :to="{ name: 'home' }">
-    <button>Go back</button>
+    <BaseButton>Go back</BaseButton>
   </RouterLink>
-  <BaseButton>test</BaseButton>
 </template>
 
 <script setup lang="ts">
