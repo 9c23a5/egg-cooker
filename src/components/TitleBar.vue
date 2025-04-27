@@ -65,8 +65,7 @@ function minimize() {
 }
 
 #minimize-button {
-  /* background-image: url('/images/title_bar/minimize.png'); */
-  background-color: red;
+  background-image: url('/images/title_bar/minimize.png');
 }
 
 [data-tauri-drag-region] {
