@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { useRouter, useRoute } from 'vue-router'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 
 const router = useRouter()
 const route = useRoute()

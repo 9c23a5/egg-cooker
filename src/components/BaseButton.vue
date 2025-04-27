@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { play } from '../audio_context.ts'
-import { ref } from 'vue'
 
 let isMouseDown = false
 
