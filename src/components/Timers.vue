@@ -8,10 +8,6 @@
         </BaseButton>
       </RouterLink>
     </div>
-
-    <RouterLink :to="{ name: 'home' }">
-      <BaseButton>Return to title screen</BaseButton>
-    </RouterLink>
   </div>
 </template>
 

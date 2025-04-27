@@ -28,8 +28,9 @@
         {
           "identifier": "title-bar",
           "permissions": [
+            "core:window:allow-minimize",
             "core:window:allow-close",
-            "core:window:allow-minimize"
+            "core:window:allow-start-dragging"
           ],
           "windows": ["main"]
         }

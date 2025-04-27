@@ -1,9 +1,12 @@
 <template>
   <div class="titlebar" data-tauri-drag-region>
+    <div class="left-controls">
+      <BaseButton id="back-button" class="window-button" @click="goBack" :disabled="!allowBack"></BaseButton>
+    </div>
     <div class="title">
       <BaseButton>Shop</BaseButton>
     </div>
-    <div class="window-controls">
+    <div class="right-controls">
       <BaseButton id="minimize-button" class="window-button" @click="minimize"></BaseButton>
       <BaseButton id="close-button" class="window-button" @click="close"></BaseButton>
     </div>
@@ -12,8 +15,23 @@
 
 <script setup lang="ts">
 import { getCurrentWindow } from '@tauri-apps/api/window'
+import { useRouter, useRoute } from 'vue-router'
+import { computed, watch } from 'vue'
 
+const router = useRouter()
+const route = useRoute()
 const win = getCurrentWindow()
+
+const noBackRoutes = ['home', 'countdown_done'] as const
+
+const allowBack = computed(() => {
+  if (typeof route.name !== 'string') return true
+  return !noBackRoutes.includes(route.name as typeof noBackRoutes[number])
+})
+
+function goBack() {
+  allowBack && router.back()
+}
 
 function close() {
   win.close()
@@ -26,9 +44,10 @@ function minimize() {
 
 <style scoped>
 .titlebar {
+  display: flex;
+  position: relative;
   height: 48px;
   width: 100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   background: inherit;
@@ -36,18 +55,30 @@ function minimize() {
 }
 
 .title {
-  padding-left: 12px;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   line-height: 1;
 }
 
-.window-controls {
+.left-controls,
+.right-controls {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100%;
-  gap: 2px;
-  padding: 6px;
+  gap: 3px;
+}
+
+.left-controls {
+  padding-left: 6px;
+}
+
+.right-controls {
+  padding-right: 6px;
 }
 
 .window-button {
@@ -55,9 +86,20 @@ function minimize() {
   height: 36px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: center;
   background-color: transparent;
   border: 0;
+  padding: 0;
+}
+
+#back-button {
+  /* background-image: url('/images/title_bar/back.png'); */
+  background-color: red;
+}
+
+#back-button:disabled {
+  /* background-image: url('/images/title_bar/back-disabled.png'); */
+  background-color: grey;
 }
 
 #close-button {

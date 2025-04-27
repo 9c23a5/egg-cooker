@@ -1,8 +1,5 @@
 <template>
   <p>Work in progress!</p>
-  <RouterLink :to="{ name: 'home' }">
-    <BaseButton>Go back</BaseButton>
-  </RouterLink>
 
   <ButtonGrid :items="menus" />
 

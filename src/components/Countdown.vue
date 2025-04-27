@@ -8,9 +8,6 @@
     <RouterLink :to="{ name: 'countdown_done' }">
       <BaseButton @click="stopTimer()">[DEV] Manual stop</BaseButton>
     </RouterLink>
-    <RouterLink :to="{ name: 'home' }">
-      <BaseButton @click="stopTimer()">Back</BaseButton>
-    </RouterLink>
   </div>
 </template>
 
