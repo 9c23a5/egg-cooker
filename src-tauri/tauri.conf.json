@@ -27,7 +27,10 @@
       "capabilities": [
         {
           "identifier": "title-bar",
-          "permissions": ["core:window:allow-close"],
+          "permissions": [
+            "core:window:allow-close",
+            "core:window:allow-minimize"
+          ],
           "windows": ["main"]
         }
       ]

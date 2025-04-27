@@ -3,8 +3,9 @@
     <div class="title">
       <BaseButton>Shop</BaseButton>
     </div>
-    <div class="window-controls" @click="close">
-      <BaseButton class="close-button"></BaseButton>
+    <div class="window-controls">
+      <BaseButton id="minimize-button" class="window-button" @click="minimize"></BaseButton>
+      <BaseButton id="close-button" class="window-button" @click="close"></BaseButton>
     </div>
   </div>
 </template>
@@ -16,6 +17,10 @@ const win = getCurrentWindow()
 
 function close() {
   win.close()
+}
+
+function minimize() {
+  win.minimize()
 }
 </script>
 
@@ -41,16 +46,27 @@ function close() {
   align-items: center;
   justify-content: center;
   height: 100%;
+  gap: 2px;
+  padding: 6px;
 }
 
-.close-button {
-  width: 48px;
-  height: 48px;
-  background-image: url('/images/title_bar/close.png');
+.window-button {
+  width: 36px;
+  height: 36px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top right;
+  background-color: transparent;
   border: 0;
+}
+
+#close-button {
+  background-image: url('/images/title_bar/close.png');
+}
+
+#minimize-button {
+  /* background-image: url('/images/title_bar/minimize.png'); */
+  background-color: red;
 }
 
 [data-tauri-drag-region] {
