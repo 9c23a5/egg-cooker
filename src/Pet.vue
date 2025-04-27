@@ -27,4 +27,8 @@ export default defineComponent({
 .pet {
   text-align: center;
 }
+
+img {
+  height: 300px;
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="titlebar" data-tauri-drag-region>
     <div class="left-controls">
-      <BaseButton id="back-button" class="window-button" @click="goBack" :disabled="!allowBack"></BaseButton>
+      <div v-if="allowBack">
+        <BaseButton id="back-button" class="window-button" @click="goBack"></BaseButton>
+      </div>
     </div>
     <div class="title">
       <BaseButton>Shop</BaseButton>
@@ -93,13 +95,7 @@ function minimize() {
 }
 
 #back-button {
-  /* background-image: url('/images/title_bar/back.png'); */
-  background-color: red;
-}
-
-#back-button:disabled {
-  /* background-image: url('/images/title_bar/back-disabled.png'); */
-  background-color: grey;
+  background-image: url('/images/title_bar/back.png');
 }
 
 #close-button {
