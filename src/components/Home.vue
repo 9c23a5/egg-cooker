@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Choose your next cooking adventure!</h1>
+    <h1 class="title">Choose your next cooking adventure!</h1>
     <div v-for="[label, routeName] in menus" :key="label">
       <template v-if="routeName">
         <RouterLink :to="{ name: routeName }">
@@ -30,3 +30,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.title {
+  text-align: center;
+}
+</style>

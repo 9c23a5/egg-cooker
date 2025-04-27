@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ timer.name }}</h2>
+    <h1>{{ timer.name }}</h1>
     <p>
       Time left:
       {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}

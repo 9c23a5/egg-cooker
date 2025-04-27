@@ -24,4 +24,27 @@ body,
   height: 100%;
   background-color: #ffdd51;
 }
+
+body,
+button {
+  font-family: 'Cute Mono', sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+button {
+  font-size: 50%;
+  line-height: 15px;
+}
+
+h1 {
+  font-size: 200%;
+  line-height: 40px;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Cute Mono';
+  src: url('/fonts/retro-pixel-cute-mono.woff2') format('woff2'),
+}
 </style>
