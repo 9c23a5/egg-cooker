@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Choose a timer</h1>
+    <Pet />
     <ButtonGrid :items="timer_links" />
   </div>
 </template>
