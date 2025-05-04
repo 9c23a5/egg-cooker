@@ -72,20 +72,20 @@ function minimize() {
   display: flex;
   align-items: center;
   height: 100%;
-  gap: 3px;
+  gap: 4px;
 }
 
 .left-controls {
-  padding-left: 6px;
+  padding-left: 4px;
 }
 
 .right-controls {
-  padding-right: 6px;
+  padding-right: 4px;
 }
 
 .window-button {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

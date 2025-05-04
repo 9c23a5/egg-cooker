@@ -1,17 +1,30 @@
 <template>
   <p>Work in progress!</p>
-
-  <ButtonGrid :items="menus" />
-
+  <button onmouseup="reportButton(e)">test</button>
 </template>
 
 <script setup lang="ts">
-import ButtonGrid from './ButtonGrid.vue';
+var reportButton = function (e) {
+  // Handle different event models
+  var e = e || window.event;
+  var btnCode;
 
-const menus = [
-  { label: 'Time an egg', routeName: 'timers' },
-  { label: 'Cook rice', routeName: null },
-  { label: 'Common ratios', routeName: null },
-  { label: 'Explore more', routeName: null }
-]
+  if ('object' === typeof e) {
+    btnCode = e.button;
+
+    switch (btnCode) {
+      case 3:
+        console.log('Browser Back button clicked.');
+        break;
+
+      case 4:
+        console.log('Browser Forward button clicked.');
+        break;
+
+      default:
+        console.log('Unexpected code: ' + btnCode);
+    }
+  }
+}
+
 </script>
