@@ -16,5 +16,4 @@ const timer_links = timer_references.map((timer_ref) => ({
   routeName: "countdown",
   params: { egg_name: timer_ref.name },
 }));
-console.log(timer_links)
 </script>

@@ -25,7 +25,7 @@ function handleUp(event: MouseEvent) {
   if (!isMouseDown) return
 
   isMouseDown = false
-  play('mouse_up')
+  // play('mouse_up')
 }
 </script>
 

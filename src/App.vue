@@ -19,9 +19,14 @@ body,
 #app {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: calc(400px - 16px);
   height: 100%;
   background-color: #ffcd32;
+}
+
+#app {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 body,

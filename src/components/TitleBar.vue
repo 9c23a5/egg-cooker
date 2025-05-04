@@ -1,9 +1,7 @@
 <template>
   <div class="titlebar" data-tauri-drag-region>
     <div class="left-controls">
-      <div v-if="allowBack">
-        <BaseButton id="back-button" class="window-button" @click="goBack"></BaseButton>
-      </div>
+      <BaseButton v-if="allowBack" id="back-button" class="window-button" @click="goBack"></BaseButton>
     </div>
     <div class="title">
       <BaseButton>Shop</BaseButton>
@@ -73,14 +71,6 @@ function minimize() {
   align-items: center;
   height: 100%;
   gap: 4px;
-}
-
-.left-controls {
-  padding-left: 4px;
-}
-
-.right-controls {
-  padding-right: 4px;
 }
 
 .window-button {
