@@ -3,9 +3,15 @@ const audioContext = new AudioContext();
 const soundMap: Record<string, string> = {
   mouse_down: "/sounds/mouse_down.ogg",
   mouse_up: "/sounds/mouse_up.ogg",
+  egg_done: "/sounds/alarm.ogg",
 };
 
 const buffers: Map<string, AudioBuffer> = new Map();
+type LoopPlayback = {
+  source: AudioBufferSourceNode;
+};
+
+const loops: Map<string, LoopPlayback> = new Map();
 
 async function loadSound(url: string): Promise<AudioBuffer> {
   const res = await fetch(url);
@@ -35,4 +41,27 @@ function play(name: string) {
   source.start();
 }
 
-export { audioContext, initSounds, play };
+function play_loop(name: string) {
+  if (loops.has(name)) return;
+
+  const buffer = buffers.get(name);
+  if (!buffer) return;
+
+  const source = audioContext.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+  source.connect(audioContext.destination);
+  source.start();
+
+  loops.set(name, { source });
+}
+
+function stop_loop(name: string) {
+  const playback = loops.get(name);
+  if (!playback) return;
+
+  playback.source.stop();
+  loops.delete(name);
+}
+
+export { audioContext, initSounds, play, play_loop, stop_loop };
