@@ -22,6 +22,9 @@ body,
   width: calc(400px - 16px);
   height: 100%;
   background-color: #ffcd32;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 #app {
