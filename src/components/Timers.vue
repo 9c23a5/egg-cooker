@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Choose a timer</h1>
+    <h1 class="title">Time an egg</h1>
     <Pet />
+    <h1>Choose your egg type!</h1>
     <ButtonGrid :items="timer_links" />
   </div>
 </template>
@@ -13,7 +14,7 @@ import { timer_references } from '../timer_references'
 const timer_links = timer_references.map((timer_ref) => ({
   label: timer_ref.name,
   routeName: "countdown",
-  params: { name: timer_ref.name },
+  params: { egg_name: timer_ref.name },
 }));
 console.log(timer_links)
 </script>

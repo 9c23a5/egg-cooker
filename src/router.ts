@@ -9,8 +9,12 @@ const routes = [
   { path: "/", name: "home", component: Home },
   { path: "/timers", name: "timers", component: Timers },
   { path: "/wip_view", name: "wip_view", component: WIPView },
-  { path: "/countdown/:name", name: "countdown", component: Countdown },
-  { path: "/countdown_done", name: "countdown_done", component: CountdownDone },
+  { path: "/countdown/:egg_name", name: "countdown", component: Countdown },
+  {
+    path: "/countdown_done/:egg_name",
+    name: "countdown_done",
+    component: CountdownDone,
+  },
 ];
 
 export type AppRouteName = (typeof routes)[number]["name"];

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="title">Choose your next cooking adventure!</h1>
+    <h1 class="title">Welcome to kitchen helper app</h1>
+    <Pet />
+    <h1>Choose your next cooking adventure!</h1>
     <ButtonGrid :items="menus" />
   </div>
 </template>

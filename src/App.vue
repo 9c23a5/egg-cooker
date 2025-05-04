@@ -1,6 +1,5 @@
 <template>
   <TitleBar />
-  <Pet />
   <router-view />
 </template>
 
@@ -41,6 +40,11 @@ h1 {
   font-size: 200%;
   line-height: 40px;
   font-weight: normal;
+  margin: 5px;
+}
+
+.title {
+  text-align: center;
 }
 
 @font-face {
