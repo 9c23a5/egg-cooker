@@ -1,34 +1,24 @@
 <template>
   <div>
     <h1 class="title">Choose your next cooking adventure!</h1>
-    <div v-for="[label, routeName] in menus" :key="label">
-      <template v-if="routeName">
-        <RouterLink :to="{ name: routeName }">
-          <BaseButton>{{ label }}</BaseButton>
-        </RouterLink>
-      </template>
-      <template v-else>
-        <BaseButton>{{ label }}</BaseButton>
-      </template>
-    </div>
+    <ButtonGrid :items="menus" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+const isDev = import.meta.env.MODE === 'development'
 
-export default defineComponent({
-  setup() {
-    const menus: [string, string | null][] = [
-      ["Time an egg", "timers"],
-      ["Cook rice", "rice_cooker"],
-      ["Common ratios", "ratios"],
-      ["Explore more", null]
-    ]
+const menus = [
+  { label: 'Time an egg', routeName: 'timers' },
+  { label: 'Cook rice', routeName: null },
+  { label: 'Common ratios', routeName: null },
+]
 
-    return { menus }
-  }
-})
+if (isDev) {
+  menus.push({ label: 'wip_view', routeName: 'wip_view' })
+} else {
+  menus.push({ label: 'Explore more', routeName: null })
+}
 </script>
 
 <style scoped>

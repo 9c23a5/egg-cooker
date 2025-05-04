@@ -1,25 +1,18 @@
 <template>
   <div>
     <h1>Choose a timer</h1>
-    <div v-for="timer in timers" :key="timer.name">
-      <RouterLink :to="{ name: 'countdown', params: { name: timer.name } }">
-        <BaseButton>
-          {{ timer.name }}
-        </BaseButton>
-      </RouterLink>
-    </div>
+    <ButtonGrid :items="timer_links" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { timer_references } from '../timer_references'
 
-export default defineComponent({
-  setup() {
-    const timers = timer_references
-
-    return { timers }
-  }
-})
+// countdown takes the egg timer name as a param
+const timer_links = timer_references.map((timer_ref) => ({
+  label: timer_ref.name,
+  routeName: "countdown",
+  params: { name: timer_ref.name },
+}));
+console.log(timer_links)
 </script>

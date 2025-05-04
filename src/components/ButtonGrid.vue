@@ -1,7 +1,7 @@
 <template>
   <div class="button-grid">
     <div v-for="item in items" :key="item.label" class="button-wrapper">
-      <RouterLink v-if="item.routeName" :to="{ name: item.routeName }">
+      <RouterLink v-if="item.routeName" :to="{ name: item.routeName, params: item.params }">
         <BaseButton>{{ item.label }}</BaseButton>
       </RouterLink>
       <BaseButton v-else>{{ item.label }}</BaseButton>
@@ -13,11 +13,13 @@
 <script setup lang="ts">
 import BaseButton from './BaseButton.vue'
 import { RouterLink } from 'vue-router'
+import type { RouteParamsRawGeneric } from 'vue-router'
 
 defineProps<{
   items: {
     label: string
-    routeName: string | null
+    routeName: string | null,
+    params: RouteParamsRawGeneric | undefined
   }[]
 }>()
 </script>

@@ -8,8 +8,7 @@ import CountdownDone from "./components/CountdownDone.vue";
 const routes = [
   { path: "/", name: "home", component: Home },
   { path: "/timers", name: "timers", component: Timers },
-  { path: "/rice_cooker", name: "rice_cooker", component: WIPView },
-  { path: "/ratios", name: "ratios", component: WIPView },
+  { path: "/wip_view", name: "wip_view", component: WIPView },
   { path: "/countdown/:name", name: "countdown", component: Countdown },
   { path: "/countdown_done", name: "countdown_done", component: CountdownDone },
 ];
