@@ -1,22 +1,17 @@
 const audioContext = new AudioContext();
 
 const soundMap: Record<string, string> = {
-  mouse_down: "/sounds/mouse_down.ogg",
   mouse_up: "/sounds/mouse_up.ogg",
   egg_cooking: "/sounds/alarm_ticking.ogg",
   egg_done: "/sounds/alarm.ogg",
 };
 
 const buffers: Map<string, AudioBuffer> = new Map();
-
-type SoundPlayback = {
+type LoopPlayback = {
   source: AudioBufferSourceNode;
-  gainNode: GainNode;
-  startTime: number;
-  isLoop: boolean;
 };
 
-const loops: Map<string, SoundPlayback> = new Map();
+const loops: Map<string, LoopPlayback> = new Map();
 
 async function loadSound(url: string): Promise<AudioBuffer> {
   const res = await fetch(url);
@@ -36,53 +31,29 @@ async function initSounds(): Promise<void> {
   });
 }
 
-function createGainNode(gain = 1.0): GainNode {
-  const gainNode = audioContext.createGain();
-  gainNode.gain.setValueAtTime(gain, audioContext.currentTime);
-  gainNode.connect(audioContext.destination);
-  return gainNode;
-}
-
-function playSound(
-  name: string,
-  { loop = false, gain = 1.0 }: { loop?: boolean; gain?: number } = {}
-) {
+function play(name: string) {
   const buffer = buffers.get(name);
   if (!buffer) return;
 
   const source = audioContext.createBufferSource();
-  const gainNode = createGainNode(gain);
-
   source.buffer = buffer;
-  source.loop = loop;
-  source.connect(gainNode);
-
-  const startTime = audioContext.currentTime;
-  source.start(startTime);
-
-  if (loop) {
-    const existing = loops.get(name);
-    if (existing) {
-      existing.source.stop();
-      loops.delete(name);
-    }
-
-    loops.set(name, {
-      source,
-      gainNode,
-      startTime,
-      isLoop: true,
-    });
-  }
-
-  if (name === "mouse_down") {
-    console.log("mouse_down sound played");
-    console.log("gain:", gain, "loop:", loop, "startTime:", startTime);
-  }
+  source.connect(audioContext.destination);
+  source.start();
 }
 
-function play_loop(name: string, gain = 1.0) {
-  playSound(name, { loop: true, gain });
+function play_loop(name: string) {
+  if (loops.has(name)) return;
+
+  const buffer = buffers.get(name);
+  if (!buffer) return;
+
+  const source = audioContext.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+  source.connect(audioContext.destination);
+  source.start();
+
+  loops.set(name, { source });
 }
 
 function stop_loop(name: string) {
@@ -93,4 +64,4 @@ function stop_loop(name: string) {
   loops.delete(name);
 }
 
-export { audioContext, initSounds, playSound as play, play_loop, stop_loop };
+export { audioContext, initSounds, play, play_loop, stop_loop };
