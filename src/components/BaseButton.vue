@@ -1,5 +1,5 @@
 <template>
-  <button class="base-button" @mouseup="handleUp" @mouseleave="handleUp" v-bind="$attrs">
+  <button class="base-button" @mousedown="handleDown" @mouseup="handleUp" @mouseleave="handleUp" v-bind="$attrs">
     <slot />
   </button>
 </template>
@@ -11,6 +11,12 @@ let isMouseDown = false
 
 function isButtonDisabled(event: MouseEvent) {
   return (event.currentTarget as HTMLButtonElement)?.disabled
+}
+
+function handleDown(event: MouseEvent) {
+  if (isButtonDisabled(event)) return
+
+  isMouseDown = true
 }
 
 function handleUp(event: MouseEvent) {
