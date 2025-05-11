@@ -1,9 +1,14 @@
 <template>
   <div>
-    <h1 class="title">Time an egg</h1>
+    <div class="title_box">
+      <h1 class="title">Time an egg</h1>
+    </div>
     <Pet />
-    <h1>Choose your egg type!</h1>
-    <ButtonGrid :items="timer_links" />
+
+    <div class="interaction_box">
+      <!-- <p>Choose your egg type!</p> -->
+      <ButtonGrid :items="timer_links" />
+    </div>
   </div>
 </template>
 

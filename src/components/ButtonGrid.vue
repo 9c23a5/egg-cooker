@@ -30,7 +30,8 @@ defineProps<{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 2rem;
   width: 100%;
   max-width: 320px;
   margin: 0 auto;

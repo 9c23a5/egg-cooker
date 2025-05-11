@@ -25,7 +25,10 @@ export default defineComponent({
 
 <style scoped>
 .pet {
-  text-align: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img {

@@ -1,15 +1,14 @@
 <template>
   <div>
-    <h1 class="title">{{ timer.name }} Egg</h1>
+    <div class="title_box">
+      <h1 class="title">Your {{ timer.name }} Egg<br />is ready in</h1>
+    </div>
     <Pet />
-    <h1>Your egg is ready in...</h1>
-    <p class="timer">
-      {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
-    </p>
-
-    <RouterLink v-if="isDev" :to="timer_complete_route">
-      <button @click="stopTimer()">[DEV] Manual stop</button>
-    </RouterLink>
+    <div class="interaction_box">
+      <p class="timer">
+        {{ Math.floor(timeLeft / 60) }}:{{ (timeLeft % 60).toString().padStart(2, '0') }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -56,3 +55,15 @@ interval = window.setInterval(() => {
 
 onBeforeUnmount(stopTimer)
 </script>
+
+<style scoped>
+.timer {
+  font-size: 111px;
+  text-shadow: 4px 4px 1px black;
+
+}
+
+.interaction_box {
+  justify-content: center;
+}
+</style>

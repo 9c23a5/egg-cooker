@@ -1,12 +1,14 @@
 <template>
   <div>
-    <h1 class="title">{{ eggName }}</h1>
+    <div class="title_box">
+      <h1 class="title">Your {{ eggName }} Egg<br />is done!</h1>
+    </div>
     <Pet />
-    <h1>Your egg is done!</h1>
-
-    <RouterLink :to="{ name: 'home' }">
-      <BaseButton>Return to title screen</BaseButton>
-    </RouterLink>
+    <div class="interaction_box">
+      <RouterLink :to="{ name: 'home' }">
+        <BaseButton>Return to<br />Title Screen</BaseButton>
+      </RouterLink>
+    </div>
   </div>
 </template>
 
@@ -16,7 +18,7 @@ import { useRoute } from 'vue-router'
 import { play_loop, stop_loop } from '../audio_context.ts'
 
 const route = useRoute()
-const eggName = route.params.name as string
+const eggName = route.params.egg_name as string
 
 play_loop('egg_done')
 
@@ -25,3 +27,16 @@ onBeforeUnmount(() => {
 })
 
 </script>
+
+<style scoped>
+button {
+  width: 223px;
+  height: 77px;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.interaction_box {
+  justify-content: center;
+}
+</style>

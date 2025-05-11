@@ -1,6 +1,6 @@
 <template>
   <TitleBar />
-  <router-view />
+  <router-view id="view" />
 </template>
 
 <script lang="ts">

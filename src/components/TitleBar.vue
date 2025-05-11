@@ -3,7 +3,7 @@
     <div class="left-controls">
       <BaseButton v-if="allowBack" id="back-button" class="window-button" @click="goBack"></BaseButton>
     </div>
-    <div class="title">
+    <div class="titlebar-title">
       <BaseButton id="shop-button">Shop</BaseButton>
     </div>
     <div class="right-controls">
@@ -55,7 +55,7 @@ function minimize() {
   margin-bottom: 20px;
 }
 
-.title {
+.titlebar-title {
   display: flex;
   position: absolute;
   left: 50%;
