@@ -29,6 +29,6 @@ export default defineComponent({
 }
 
 img {
-  height: 300px;
+  height: 260px;
 }
 </style>

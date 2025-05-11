@@ -4,7 +4,7 @@
       <BaseButton v-if="allowBack" id="back-button" class="window-button" @click="goBack"></BaseButton>
     </div>
     <div class="title">
-      <BaseButton>Shop</BaseButton>
+      <BaseButton id="shop-button">Shop</BaseButton>
     </div>
     <div class="right-controls">
       <BaseButton id="minimize-button" class="window-button" @click="minimize"></BaseButton>
@@ -52,6 +52,7 @@ function minimize() {
   align-items: center;
   background: inherit;
   user-select: none;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -85,15 +86,22 @@ function minimize() {
 }
 
 #back-button {
-  background-image: url('/images/title_bar/back.png');
+  background-image: url('/images/buttons/back.png');
+}
+
+
+#shop-button {
+  width: 89px;
+  height: 34px;
+  font-size: 22px;
 }
 
 #close-button {
-  background-image: url('/images/title_bar/close.png');
+  background-image: url('/images/buttons/close.png');
 }
 
 #minimize-button {
-  background-image: url('/images/title_bar/minimize.png');
+  background-image: url('/images/buttons/minimize.png');
 }
 
 [data-tauri-drag-region] {

@@ -1,18 +1,18 @@
 export const timer_references = [
   {
-    name: "Runny Egg",
+    name: "Runny",
     seconds: 300, // 5 minutes
   },
   {
-    name: "Poached Egg",
+    name: "Poached",
     seconds: 360, // 6 minutes
   },
   {
-    name: "Medium Egg",
+    name: "Medium",
     seconds: 480, // 8 minutes
   },
   {
-    name: "Hard Egg",
+    name: "Hard",
     seconds: 10, // 10 minutes
   },
 ] as const;

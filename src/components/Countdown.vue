@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="title">{{ timer.name }}</h1>
+    <h1 class="title">{{ timer.name }} Egg</h1>
     <Pet />
     <h1>Your egg is ready in...</h1>
     <p class="timer">
@@ -8,7 +8,7 @@
     </p>
 
     <RouterLink v-if="isDev" :to="timer_complete_route">
-      <BaseButton @click="stopTimer()">[DEV] Manual stop</BaseButton>
+      <button @click="stopTimer()">[DEV] Manual stop</button>
     </RouterLink>
   </div>
 </template>
