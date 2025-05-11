@@ -2,9 +2,9 @@
 
 A simple kitchen buddy that helps you cook, written on TypeScript using Tauri+Vue!
 
-|[Homescreen screenshot](screenshots/home.png)|[Timers screenshot](screenshots/timers.png)|
+|![Homescreen screenshot](screenshots/home.png)|![Timers screenshot](screenshots/timers.png)|
 |---|---|
-|[Countdown screenshot](screenshots/countdown.png)|[Countdown complete screenshot](screenshots/countdown_done.png)|
+|![Countdown screenshot](screenshots/countdown.png)|![Countdown complete screenshot](screenshots/countdown_done.png)|
 
 ## Running dev version:
 
@@ -12,7 +12,7 @@ A simple kitchen buddy that helps you cook, written on TypeScript using Tauri+Vu
 pnpm tauri dev
 ```
 
-# Building
+## Building
 
 ```
 pnpm tauri build
