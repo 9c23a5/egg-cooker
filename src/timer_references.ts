@@ -13,7 +13,7 @@ export const timer_references = [
   },
   {
     name: "Hard",
-    seconds: 10, // 10 minutes
+    seconds: 600, // 10 minutes
   },
 ] as const;
 

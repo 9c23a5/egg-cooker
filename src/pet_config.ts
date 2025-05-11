@@ -1,13 +1,11 @@
 import type { AppRouteName } from "./router";
 
-import CatRamen from "/images/pet/ramen.png";
-import CatEggDone from "/images/pet/ramen.png";
-import CatDefault from "/images/pet/ramen.png";
+import CatDefault from "/images/pet/default.png";
+import CatEggDone from "/images/pet/smile.png";
 
 type PetAsset = string;
 
 export const petByRoute: Partial<Record<AppRouteName, PetAsset | null>> = {
-  home: CatRamen,
   countdown_done: CatEggDone,
 };
 
