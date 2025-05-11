@@ -19,8 +19,6 @@ import { useRouter } from 'vue-router'
 import { timer_reference_map } from '../timer_references'
 import { play_loop, stop_loop } from '../audio_context.ts'
 
-const isDev = import.meta.env.MODE === 'development'
-
 const route = useRoute()
 const router = useRouter()
 
